@@ -1,16 +1,20 @@
+//importa modulos usados do fastfy
 import {
   FastifyInstance,
   FastifyPluginOptions,
   FastifyRequest,
   FastifyReply
 } from 'fastify'
+//importa o controlador
 import { CreateTreinoController } from './controllers/CreateTreinoController'
 
+//define e exporta a funcao que gerencia as rotas
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
+  //rota get para teste
   fastify.get("/teste", (request: FastifyRequest, reply: FastifyReply) => {
 
-    // Definindo as variáveis necessárias
+    // Definindo as variáveis para teste
     let name = "Leonardo";
     let gender = "Masculino";
     let age = 42;
@@ -18,7 +22,7 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     let weight = 96;
     let objective = "Hipertrofia";
 
-    // Criando o objeto de resposta de forma mais simples
+    // cria o objeto de resposta com os dados do usuario e exercicios
     const response = {
       nome: name,
       sexo: gender,
@@ -26,6 +30,7 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
       altura: height,
       peso: weight,
       objetivo: objective,
+      
       exercicios: [
         { nome: "Supino reto", series: 4, repeticoes: 10, descanso: "90 segundos" },
         { nome: "Agachamento", series: 4, repeticoes: 12, descanso: "90 segundos" },
@@ -42,7 +47,7 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
       reply.status(500).send({ error: 'Falha ao processar o JSON' });
     }
   });
-
+  //cria a rota POST para criacao do treino
   fastify.post("/create", async (request: FastifyRequest, reply: FastifyReply) => {
     return new CreateTreinoController().handle(request, reply);
   });
