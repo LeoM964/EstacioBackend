@@ -23,7 +23,7 @@ class CreateTreinoService {
         - Objetivo: ${objective}
         - Nível de atividade: ${level}
       
-        Retorne a resposta apenas em JSON com as seguintes propriedades:
+        Retorne a resposta apenas em JSON com as seguintes propriedades, sem qualquer texto extra, explicações ou formatação adicional:
         - nome: o nome da pessoa
         - sexo: sexo da pessoa
         - idade: idade da pessoa
@@ -36,7 +36,7 @@ class CreateTreinoService {
           - repeticoes: a quantidade de repetições por série
           - descanso: o tempo de descanso entre as séries
           
-        Não inclua nenhuma informação extra além do JSON com essas propriedades, e remova todos os acentos das propriedades.
+        Não inclua nenhuma informação extra e nenhum texto adicional além do JSON com essas propriedades, e remova todos os acentos das propriedades.
       `)
       
        // Exibe no console o conteúdo retornado pela API, para fins de depuração
